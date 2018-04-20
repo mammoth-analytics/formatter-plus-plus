@@ -6,7 +6,7 @@
  * @param {string} locale
  * @return {string}
  */
-let Humanize = require('humanize-plus');
+var Humanize = require('humanize-plus');
 module.exports = FormatterPP;
 
 
@@ -15,15 +15,15 @@ function humaniseNumber(origNumber){
     if(origNumber == 0){
         return '0';
     }
-    let negative = false;
-    let strRep;
+    var negative = false;
+    var strRep;
     if(origNumber < 0){
         negative = true;
         origNumber  *= (-1);
     }
-    let l10 = Math.floor(Math.log10(origNumber));
-    let base10Power = Math.pow(10, l10);
-    let isInt = Number.isInteger(origNumber);
+    var l10 = Math.floor(Math.log10(origNumber));
+    var base10Power = Math.pow(10, l10);
+    var isInt = Number.isInteger(origNumber);
 
     if(l10 < 4 && l10 >= 0){
         if(isInt){
@@ -34,9 +34,9 @@ function humaniseNumber(origNumber){
         }
     }
     else if(l10 < 0 && l10 >= -3){
-        let numAsDec = Math.round((1000/(base10Power)) * (origNumber));
-        let leadingZeroString = '0.';
-        for(let i = 0; i < Math.abs(l10) - 1; i++){
+        var numAsDec = Math.round((1000/(base10Power)) * (origNumber));
+        var leadingZeroString = '0.';
+        for(var i = 0; i < Math.abs(l10) - 1; i++){
             leadingZeroString += '0';
         }
         strRep = leadingZeroString + numAsDec;
@@ -45,7 +45,7 @@ function humaniseNumber(origNumber){
         }
     }
     else{
-        let numAsDec = Math.round(100 * (origNumber/(base10Power)))/ 100;
+        var numAsDec = Math.round(100 * (origNumber/(base10Power)))/ 100;
         strRep = '10<sup>' + l10 + '</sup>';
         if(numAsDec != 1){
             strRep = numAsDec + ' x' + strRep;
@@ -68,6 +68,6 @@ function humaniseNumber(origNumber){
 
 
 function FormatterPP(){
-    let self = this;
+    var self = this;
     self.humanize = humaniseNumber;
 }
