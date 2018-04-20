@@ -1,20 +1,23 @@
 formatter-plus-plus
 =========
 
-A Javascript library to format numbers
+A Javascript library to format numbers using HTML.
 
 ## Installation
 
-  `npm install @jdaudier/number-formatter`
+  `npm install formatter-plus-plus`
 
 ## Usage
 
-    var numFormatter = require('@jdaudier/number-formatter');
+    var formatterPlusPlus = require("formatter-plus-plus")
+    let fpp = new formatterPlusPlus();
+    fpp.humanize(1244904) // output will be "1.24M"
+    fpp.humanize(1244904) // output will be ""1.34 x10<sup>12</sup>""
 
-    var formattedNum = numFormatter(35666);
 
-
-  Output should be `35,666`
+  Output should be `"1.24M"`
+  
+  humanise should work with any number.
 
 
 ## Tests
@@ -23,4 +26,4 @@ A Javascript library to format numbers
 
 ## Contributing
 
-In lieu of a formal style guide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code.
+In lieu of a formal style guide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Submit PRs.
