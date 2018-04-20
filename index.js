@@ -6,6 +6,11 @@
  * @param {string} locale
  * @return {string}
  */
-module.exports = function(number, locale) {
-    return number.toLocaleString(locale);
-};
+module.exports = FormatterPP;
+let humaniseNumber = require('./src/humanize');
+
+
+function FormatterPP(){
+    let self = this;
+    self.humanize = humaniseNumber;
+}
