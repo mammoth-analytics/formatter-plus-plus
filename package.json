@@ -1,0 +1,19 @@
+{
+  "name": "formatter-plus-plus",
+  "version": "0.2.0",
+  "description": "A Javascript library to format numbers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mammoth-analytics/formatter-plus-plus.git"
+  },
+  "author": "Ranjith BR <ranjith@mammoth.io> (mammoth.io)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/mammoth-analytics/formatter-plus-plus/issues"
+  },
+  "homepage": "https://github.com/mammoth-analytics/formatter-plus-plus#readme"
+}
