@@ -1,7 +1,7 @@
 formatter-plus-plus
 =========
 
-A Javascript library to format numbers using HTML.
+A Javascript library to format numbers as HTML.
 
 ## Installation
 
