@@ -9,11 +9,23 @@ var samples = [
         "output": "0"
     },
     {
-        "input": 342.0,
-        "output": "342"
+        "input": 5.6712612,
+        "output": "5.67"
     },
     {
-        "input": 1342.0,
+        "input": 10.1213,
+        "output": "10.12"
+    },
+    {
+        "input": -19.23542,
+        "output": "-19.24"
+    },
+    {
+        "input": 342.21,
+        "output": "342.2"
+    },
+    {
+        "input": 1342.45,
         "output": "1,342"
     },
     {
@@ -83,16 +95,19 @@ var samples = [
     {
         "input": 1.4e-16,
         "output": "1.4 x10<sup>-16</sup>"
-    },
-
+    }
 ];
+
+
+var samples2 = [
+
+]
 
 describe('#NumericPP', function() {
     it('should process the samples and give the expected val', function() {
         var npp = new FormatterPP();
-        for(let i = 0; i < samples.length; i++){
-            let result = npp.humanize(samples[i].input);
-            console.log(result)
+        for(var i = 0; i < samples.length; i++){
+            var result = npp.humanize(samples[i].input);
             expect(result).to.equal(samples[i].output);
         }
     });

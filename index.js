@@ -26,12 +26,17 @@ function humaniseNumber(origNumber){
     var isInt = Number.isInteger(origNumber);
 
     if(l10 < 4 && l10 >= 0){
+        var decimals = 0;
         if(isInt){
-            strRep = Humanize.formatNumber(origNumber, 0);
+            decimals = 0;
         }
-        else {
-            strRep = Humanize.formatNumber(origNumber, 2);
+        else if(l10 == 0 || l10 == 1){
+            decimals = 2;
         }
+        else if(l10 == 2){
+            decimals = 1
+        }
+        strRep = Humanize.formatNumber(origNumber, decimals);
     }
     else if(l10 < 0 && l10 >= -3){
         var numAsDec = Math.round((1000/(base10Power)) * (origNumber));
