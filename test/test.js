@@ -1,7 +1,8 @@
 'use strict';
 
 var expect = require('chai').expect;
-var FormatterPP = require('../index');
+var FormatterPP = require('../dist/index').FormatterPP;
+console.log(FormatterPP)
 
 var samples = [
     {
@@ -99,8 +100,12 @@ var samples = [
 ];
 
 
-var samples2 = [
-
+var displayRaw = [
+    {
+        input: 1234441121.12,
+        decimals: 1212,
+        output: "1.23 x10<sup></sup>"
+    }
 ]
 
 describe('#NumericPP', function() {

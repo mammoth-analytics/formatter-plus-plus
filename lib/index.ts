@@ -6,12 +6,11 @@
  * @param {string} locale
  * @return {string}
  */
-var Humanize = require('humanize-plus');
-module.exports = FormatterPP;
+import {compactInteger, formatNumber} from 'humanize-plus';
 
 
-function humaniseNumber(origNumber){
-    origNumber = parseFloat(origNumber);
+function humaniseNumber(inNumber: number|string){
+    let origNumber: number = parseFloat('' + inNumber);
     if(origNumber == 0){
         return '0';
     }
@@ -23,7 +22,7 @@ function humaniseNumber(origNumber){
     }
     var l10 = Math.floor(Math.log10(origNumber));
     var base10Power = Math.pow(10, l10);
-    var isInt = Number.isInteger(origNumber);
+    var isInt = Math.floor(origNumber) == Math.ceil(origNumber);
 
     if(l10 < 4 && l10 >= 0){
         var decimals = 0;
@@ -36,7 +35,7 @@ function humaniseNumber(origNumber){
         else if(l10 == 2){
             decimals = 1
         }
-        strRep = Humanize.formatNumber(origNumber, decimals);
+        strRep = formatNumber(origNumber, decimals);
     }
     else if(l10 < 0 && l10 >= -3){
         var numAsDec = Math.round((1000/(base10Power)) * (origNumber));
@@ -57,7 +56,7 @@ function humaniseNumber(origNumber){
         }
         if(l10 > 0){
             if(l10 < 12){
-                strRep = Humanize.compactInteger(origNumber, 2 - l10%3);
+                strRep = compactInteger(origNumber, 2 - l10%3);
             }
         }
     }
@@ -72,7 +71,6 @@ function humaniseNumber(origNumber){
 
 
 
-function FormatterPP(){
-    var self = this;
-    self.humanize = humaniseNumber;
+export class FormatterPP {
+    humanize = humaniseNumber;
 }

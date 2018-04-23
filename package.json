@@ -4,7 +4,8 @@
   "description": "A Javascript library to format numbers as HTML",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -25,8 +26,10 @@
     "node": ">=4.2.4"
   },
   "devDependencies": {
+    "@types/humanize-plus": "^1.8.0",
     "chai": "^4.1.2",
-    "mocha": "^5.1.1"
+    "mocha": "^5.1.1",
+    "typescript": "^2.8.3"
   },
   "dependencies": {
     "humanize-plus": "^1.8.2"
