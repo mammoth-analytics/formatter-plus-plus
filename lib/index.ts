@@ -20,7 +20,7 @@ function humaniseNumber(inNumber: number|string){
         negative = true;
         origNumber  *= (-1);
     }
-    var l10 = Math.floor(Math.log10(origNumber));
+    var l10 = Math.floor(Math.log(origNumber)/Math.LN10);
     var base10Power = Math.pow(10, l10);
     var isInt = Math.floor(origNumber) == Math.ceil(origNumber);
 
