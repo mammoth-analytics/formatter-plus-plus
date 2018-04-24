@@ -9,7 +9,7 @@
 import {compactInteger, formatNumber} from 'humanize-plus';
 
 
-function humaniseNumber(inNumber: number|string){
+function humaniseNumber(inNumber: number|string, options: HumanizeOptions = {}){
     let origNumber: number = parseFloat('' + inNumber);
     if(origNumber == 0){
         return '0';
@@ -62,6 +62,12 @@ function humaniseNumber(inNumber: number|string){
     }
 
     if(strRep){
+        if(options.suffix){
+            strRep = strRep + options.suffix;
+        }
+        if(options.prefix){
+            strRep = options.prefix + strRep;
+        }
         if(negative){
             strRep = '-' + strRep;
         }
@@ -69,6 +75,11 @@ function humaniseNumber(inNumber: number|string){
     }
 }
 
+
+export interface HumanizeOptions{
+    prefix?: string,
+    suffix?: string
+}
 
 
 export class FormatterPP {

@@ -55,7 +55,17 @@ var samples = [
     },
     {
         "input": 21321453146.0,
-        "output": "21.3B"
+        "output": "21.3B USD",
+        "options": {
+            "suffix": ' USD'
+        }
+    },
+    {
+        "input": 21321453146.0,
+        "output": "$21.3B",
+        "options": {
+            "prefix": '$'
+        }
     },
     {
         "input": 214967456243.0,
@@ -95,24 +105,16 @@ var samples = [
     },
     {
         "input": 1.4e-16,
-        "output": "1.4 x10<sup>-16</sup>"
+        "output": "1.4 x10<sup>-16</sup>",
     }
 ];
 
-
-var displayRaw = [
-    {
-        input: 1234441121.12,
-        decimals: 1212,
-        output: "1.23 x10<sup></sup>"
-    }
-]
 
 describe('#NumericPP', function() {
     it('should process the samples and give the expected val', function() {
         var npp = new FormatterPP();
         for(var i = 0; i < samples.length; i++){
-            var result = npp.humanize(samples[i].input);
+            var result = npp.humanize(samples[i].input, samples[i].options);
             expect(result).to.equal(samples[i].output);
         }
     });
