@@ -50,10 +50,18 @@ function humaniseNumber(inNumber: number|string, options: HumanizeOptions = {}){
     }
     else{
         var numAsDec = Math.round(100 * (origNumber/(base10Power)))/ 100;
-        strRep = '10<sup>' + l10 + '</sup>';
-        if(numAsDec != 1){
-            strRep = numAsDec + ' x' + strRep;
+        let seperator = '';
+        if(!options.eNotation){
+            strRep = '10<sup>' + l10 + '</sup>';
+            seperator = ' x';
         }
+        else{
+            strRep = 'e' + l10;
+        }
+        if(numAsDec != 1){
+            strRep = numAsDec + seperator + strRep;
+        }
+
         if(l10 > 0){
             if(l10 < 12){
                 strRep = compactInteger(origNumber, 2 - l10%3);
@@ -78,7 +86,8 @@ function humaniseNumber(inNumber: number|string, options: HumanizeOptions = {}){
 
 export interface HumanizeOptions{
     prefix?: string,
-    suffix?: string
+    suffix?: string,
+    eNotation?: boolean
 }
 
 

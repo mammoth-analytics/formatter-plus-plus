@@ -76,6 +76,13 @@ var samples = [
         "output": "1.21 x10<sup>12</sup>"
     },
     {
+        "input": 1214967456243.0,
+        "output": "1.21e12",
+        "options": {
+            eNotation: true
+        }
+    },
+    {
         "input": 0.1,
         "output": "0.1"
     },
@@ -98,6 +105,13 @@ var samples = [
     {
         "input": 0.00014322,
         "output": "1.43 x10<sup>-4</sup>"
+    },
+    {
+        "input": 0.00014322,
+        "output": "1.43e-4",
+        "options": {
+            eNotation: true
+        }
     },
     {
         "input": 5.43e-06,
