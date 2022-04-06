@@ -11,6 +11,7 @@ import {compactInteger, formatNumber} from 'humanize-plus';
 
 function humaniseNumber(inNumber: number|string, options: HumanizeOptions = {}){
     let origNumber: number = parseFloat('' + inNumber);
+    // if given number is 0 or a falsy value it should return 0
     if(origNumber == 0 || !origNumber){
         return '0';
     }
