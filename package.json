@@ -1,6 +1,6 @@
 {
   "name": "formatter-plus-plus",
-  "version": "0.5.10",
+  "version": "0.5.11",
   "description": "A Javascript library to format numbers as HTML",
   "main": "dist/index.js",
   "scripts": {
